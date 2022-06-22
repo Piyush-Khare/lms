@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+    <a href="/" class="btn btn-warning">Home</a>
+    <a href="{% url 'view_book' %}" class="btn btn-warning">View Books</a>
+
+    <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="col-md-12">
+                <label>Enter ISBN:</label>
+                <input type="text" value="{{book_obj.isbn}}" class="form-control" placeholder="Enter isbn" name="isbn"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Enter Title:</label>
+                <input type="text" value="{{book_obj.title}}" class="form-control" placeholder="Enter title" name="title"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Description:</label>
+                <input type="text" value="{{book_obj.description}}" class="form-control" placeholder="Enter description" name="description"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Author:</label>
+                <input type="text" value="{{book_obj.author}}" class="form-control" placeholder="Enter author" name="author"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Enter Publisher:</label>
+                <input type="text" value="{{book_obj.publisher}}" class="form-control" placeholder="Enter publisher" name="publisher"><br>
+            </div>
+
+            <div class="col-md-12">
+                {{form.media}}
+                <br>
+                {{form.as_p}}
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Update Book</button>
+
+    </form>
+
+</div>
+
+
+{% endblock %}

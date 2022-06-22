@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <a href="{% url 'view_book' %}" class="btn btn-warning">View Your Books</a>
+
+    <form method="post" class="mt-5 mb-5 pb-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label>Enter ISBN:</label>
+                <input type="text" class="form-control" placeholder="Enter isbn" name="isbn"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Enter Title:</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Description:</label>
+                <input type="text" class="form-control" placeholder="Enter description" name="description"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Author:</label>
+                <input type="text" class="form-control" placeholder="Enter author" name="author"><br>
+            </div>
+
+            <div class="col-md-12">
+                <label>Enter Publisher:</label>
+                <input type="text" class="form-control" placeholder="Enter publisher" name="publisher"><br>
+            </div>
+
+            <div class="col-md-12">
+                {{form.media}}
+                <br>
+                {{form.as_p}}
+            </div>
+
+           
+
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Save Book</button>
+
+    </form>
+
+</div>
+
+
+{% endblock %}
